@@ -2,7 +2,9 @@
 set -e
 
 REPO="castorNova2/openms-ci-artefacts"
-RELEASE_TAG="vcpkg-cache-x64-linux"
+TRIPLET="x64-linux"
+BASELINE=$(jq -r '."buildin-baseline"' "sadsadsad21312")
+RELEASE_TAG="vcpkg-cache-${TRIPLET}-${BASELINE:0:10}"
 CACHE_DIR="${HOME}/.cache/vcpkg/archives"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 TMP_DIR="$SCRIPT_DIR/.vcpkg-cache-tmp"
